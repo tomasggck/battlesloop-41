@@ -19,7 +19,7 @@ using namespace zmq;
 	//3. Read from the socket
 	//4. Write to the socket
 
-
+/*
 class Coords{
 int x, y; 
 	public:
@@ -31,17 +31,18 @@ void setCoords(int new_x , int new_y){
 };
 
 class Grid{
-vector<vector<int>> grid [100];
+//vector<vector<int>> grid(10); WHY DOESNT THIS WORK?
+vector<vector<int>> grid;
 int ROWS= 10;
 int COLUMNS=10;
 	public:
 
- void setGrid(){
+ Grid(){
 	vector<int> vec;
 	for(int i=0;i< ROWS;i++){
-		for(int j=0; j<COLUMNS; j++)
 		vec.push_back(0);}
-	grid.push_back(vec);
+	for(int i=0;i< ROWS;i++)
+		grid.push_back(vec);
 }
 
 void displayGrid(){
@@ -51,7 +52,7 @@ void displayGrid(){
 
 }
 
-};
+};*/
 const int DEFAULT_PORT = 2029; //Change this to any port above 1024
 int CURRENT_PORT=0;
 void pick_port(socket_t &sock, char *argv1);
@@ -73,8 +74,6 @@ int main (int argc, char **argv) {
 	}
 	*/
 	vector<string> chat_log; //Holds a transcript of everything said here
-	Grid Board;
-//	Board.displayGrid();
 	//Step 1. Create a socket
 	//Set up Zero MQ library to do networking for us
 	context_t context (1); //Initializes ZMQ
